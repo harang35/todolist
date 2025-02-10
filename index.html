@@ -4,6 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo list</title>
+    <style>
+      #title {
+        padding: 10px;
+        text-align: center;
+        color: rosybrown;
+        font-size: 30px;
+      }
+      #todo_box {
+        background-color: white;
+        border: 1px;
+      }
+      #input_box {
+        background-color: white;
+      }
+      #input {
+        height: 15px;
+        align-items: center;
+      }
+      #button {
+        background-color: transparent;
+        border: 0;
+      }
+      #todo_list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: flex-start; /* 가로 정렬 */
+      }
+      #list ul li {
+        width: 20rem;
+        list-style: none; /*리스트 말머리 없애기*/
+        padding: 10px;
+        border: 1px solid rgb(87, 86, 86);
+      }
+      #checkbox {
+        min-width: none; /*최소너비*/
+        min-height: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.5rem 0.5rem;
+        border: 1px solid lightgray;
+        text-align: center;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div id="title">
+      <h3>To Do List</h3>
+    </div>
+    <div id="todo_box">
+      <div id="input_box">
+        <input id="input" type="text" placeholder="할 일을 입력하세요." />
+        <button id="add">+</button>
+      </div>
+      <div id="list">
+        <ul id="todo_list">
+          <li id="todo_item check">
+            <div id="checkbox">☁️</div>
+            <div id="todo">1.하자 가자</div>
+            <button id="delbox">X</button>
+          </li>
+        </ul>
+        <div id="todo_all">
+          <button id="show_all" data-type="all">All</button>
+        </div>
+      </div>
+    </div>
+    <script src="" main.js></script>
+  </body>
 </html>
