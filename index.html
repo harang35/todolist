@@ -5,73 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo list</title>
     <style>
-      #title {
+      #todo_todo {
+        width: 450px;
+        height: 650px;
         padding: 10px;
-        text-align: center;
-        color: rosybrown;
+        background-image: url("back-sky.jpg");
+        background-size: cover; /* 이미지 전체 영역 채우기 */
+        background-position: center; /* 이미지 중앙 정렬 */
+        background-repeat: no-repeat; /* 이미지 반복 제거 */
+      }
+      #title {
+        width: 100%;
+        height: 80px;
+        color: rgb(9, 100, 185);
         font-size: 30px;
+        text-align: center;
       }
       #todo_box {
+        width: 100%;
+        height: 500px;
         background-color: white;
-        border: 1px;
       }
       #input_box {
+        display: flex;
         background-color: white;
+        justify-content: flex-start; /* 가로 정렬 */
+        padding: 10px;
       }
       #input {
-        height: 15px;
-        align-items: center;
+        width: 90%;
+        height: 35px;
+        border: 1px solid rgb(36, 167, 219);
+        color: rgb(107, 107, 107);
+        background-color: white;
+        text-align: center;
+        font-size: 15px;
       }
-      #button {
-        background-color: transparent;
-        border: 0;
+      /* input focus 테두리 색상 */
+      #input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       }
-      #todo_list {
+      #add {
+        width: 10%;
+        background-color: rgb(36, 167, 219);
+        display: flex; /* 중앙정렬 */
+        justify-content: center; /* 가로중앙정렬 */
+        align-items: center; /* 세로중앙정렬 */
+        margin-left: 3px; /* 왼쪽 밖 여백 */
+      }
+      #addBtn {
+        color: white;
+        font-size: 20px;
+        background-color: rgb(36, 167, 219);
+        border: none;
+        height: 100%;
+      }
+      #list {
         display: flex;
         list-style: none;
+        display: block;
         padding: 0;
-        margin: 0;
-        justify-content: flex-start; /* 가로 정렬 */
+        margin: 10px;
       }
-      #list ul li {
-        width: 20rem;
+      #todo_list ul li {
+        width: 90%;
+        background-color: white;
         list-style: none; /*리스트 말머리 없애기*/
-        padding: 10px;
-        border: 1px solid rgb(87, 86, 86);
+        padding: 7px;
+        border: none;
+        color: rgb(36, 167, 219);
+        /*border: 1px solid rgb(211, 32, 32);*/
       }
-      #checkbox {
-        min-width: none; /*최소너비*/
-        min-height: none;
-        width: 1.5rem;
-        height: 1.5rem;
-        margin: 0.5rem 0.5rem;
-        border: 1px solid lightgray;
-        text-align: center;
+      #todo_all {
+        display: flex;
+        justify-content: center; /* 수평 중앙 정렬 */
+        align-items: center; /* 수직 중앙 정렬 */
+        width: 100%;
+        height: 35px;
+        border: 0;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .delete-btn {
+        background-color: rgb(36, 167, 219);
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .delete-btn:hover {
+        /* 커서와 버튼색 변경*/
+        cursor: pointer;
+        background-color: rgb(238, 76, 76);
+      }
+      #show_all {
+        width: 35px;
+        height: 70%;
+        color: rgb(167, 166, 166);
+        border: 1px solid rgb(199, 201, 202);
       }
     </style>
   </head>
   <body>
-    <div id="title">
-      <h3>To Do List</h3>
-    </div>
-    <div id="todo_box">
-      <div id="input_box">
-        <input id="input" type="text" placeholder="할 일을 입력하세요." />
-        <button id="add">+</button>
+    <div id="todo_todo">
+      <div id="title">
+        <h3>To Do List</h3>
       </div>
-      <div id="list">
-        <ul id="todo_list">
-          <li id="todo_item check">
-            <div id="checkbox">☁️</div>
-            <div id="todo">1.하자 가자</div>
-            <button id="delbox">X</button>
-          </li>
-        </ul>
+      <div id="todo_box">
+        <div id="input_box">
+          <input id="input" type="text" placeholder="할 일을 입력하세요." />
+          <div id="add"><button id="addBtn">+</button></div>
+        </div>
+        <div id="todo_list">
+          <ul id="list"></ul>
+        </div>
         <div id="todo_all">
           <button id="show_all" data-type="all">All</button>
         </div>
       </div>
     </div>
-    <script src="" main.js></script>
+    <script src="main.js"></script>
   </body>
 </html>
