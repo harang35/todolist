@@ -1,52 +1,69 @@
 // 1. 투두리스트 디자인 만들기
 // 2. Todo 객체 생성
 // 기본 속성 : 내용, 체크여부, id값,
-const todos = [todo, todo, todo];
+/* const todos = [todo, todo, todo];
 
-const todo = {};
-const doto = {
+const todo = {
   title: "",
   checked: false,
   id: "",
-};
+};*/
 
-// 입력창과 버튼, 리스트를 가져오기
-const input = document.getElementById("input");
-const addButton = document.getElementById("addBtn");
-const list = document.getElementById("list");
+// Dummy Data(가짜데이터)
+const todos = [
+  { title: "자바스크립트 공부", checked: true, id: 1 },
+  { title: "자바스크립트 공부", checked: false, id: 2 },
+];
 
-// 입력 클릭 이벤트
-addButton.addEventListener("click", () => {
-  const todoText = input.value.trim(); // 입력값 가져오기 및 공백 제거
+function addTodo() {
+  const input = document.getElementById("todo_input");
+  const title = input.value.trim();
+  if (title === "") return alert("할 일을 입력하세요!");
 
-  // 입력창에 내용 없으면 경고
-  if (!todoText) {
-    alert("내용을 입력해 주세요!");
-    return;
-  }
+  const newTodo = {
+    title: title,
+    checked: false,
+    id: Date.now().toString(),
+  };
+}
+todos.push(newTodo);
+input.value = ""; //입력창 초기화
+loadTodos(); // 목록 다시
 
-  const li = document.createElement("li"); // 새로운 할 일 만들기
-  const checkbox = document.createElement("input"); // 체크박스 생성
-  checkbox.type = "checkbox"; // 체크박스 타입 지정
+//화면에 투두리스트 모두 보여주는 함수
+function loadTodos() {
+  const ul = document.getElementById("todo_list"); //ul 태그 가져오기
+  ul.innerHTML = ""; //ul 안의 모든 태그 초기화
+  todos.forEach((item, index) => {
+    const li = document.createElement("li"); //html 태그 생성
+    li.innerHTML = item.title;
 
-  checkbox.addEventListener("change", () => {
-    // 체크박스 변경 이벤트
-    li.classList.toggle("completed"); // 체크되면 완료 표시
+    const p = document.createElement("p"); // 내용을 넣을 p 태그 생성
+    p.innerHTML = item.content; // p태그 안에 내용 넣기
+    p.style.color = "blue";
+    li.appendChild(p); // p태그를 li태그 안에 넣기
+    ul.appendChild(li); // 생성한 태그를 부모태그에 넣기
   });
+  console.log(todos);
+}
 
-  const deleteButton = document.createElement("button"); // 삭제 버튼 생성
-  deleteButton.textContent = "X";
-  deleteButton.className = "delete-btn";
-
-  // 할일 삭제 클릭 이벤트
-  deleteButton.addEventListener("click", () => {
-    list.removeChild(li);
-  });
-
-  li.appendChild(checkbox); // 체크박스 추가
-  li.appendChild(document.createTextNode(todoText)); // 할 일 추가
-  li.appendChild(deleteButton);
-
-  list.appendChild(li); // 리스트에 추가
-  input.value = ""; // 입력창 초기화
+// 추가 버튼 이벤트 등록
+document.getElementById("addBtn").addEventListener("click", () => {
+  // todo 추가함수 실행
+  addTodo();
+  // 리스트 불러오는 함수 실행
+  loadTodos();
 });
+
+// 투두리스트 추가 함수
+function addTodo() {
+  // 각각의 input태그에 title 대한 값 가져오기
+  const title = document.getElementById("title").value;
+  const newTodo = {
+    // 새로운 todo 객체 생성
+    title,
+    checked,
+    id: Math.random().toString(), // 랜덤난수로 중복되지 않은 id값 생성
+  };
+  todos.push(newTodo);
+}
