@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo list</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         width: 100%;
         height: 600px;
@@ -15,7 +20,7 @@
         display: flex;
         justify-content: center; /* 가로 중앙 정렬 */
       }
-      #todo_todo {
+      #todo1 {
         width: 450px;
         height: 650px;
         padding: 10px;
@@ -27,19 +32,26 @@
         font-size: 30px;
         text-align: center;
       }
-      #todo_box {
+      #todo2 {
         width: 100%;
         height: 500px;
         background-color: white;
       }
+      #todo_box {
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        display: flex; /* flexbox 적용 */
+        justify-content: center; /* 가로중앙정렬 */
+        align-items: center; /* 세로중앙정렬 */
+      }
       #input_box {
         display: flex;
         background-color: white;
-        justify-content: flex-start; /* 가로 정렬 */
         padding: 10px;
       }
-      #input {
-        width: 90%;
+      #todo_input {
+        width: 300px;
         height: 35px;
         border: 1px solid rgb(36, 167, 219);
         color: rgb(107, 107, 107);
@@ -54,19 +66,17 @@
         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       }
       #add {
-        width: 10%;
         background-color: rgb(36, 167, 219);
-        display: flex; /* 중앙정렬 */
-        justify-content: center; /* 가로중앙정렬 */
-        align-items: center; /* 세로중앙정렬 */
         margin-left: 3px; /* 왼쪽 밖 여백 */
+        text-align: center;
       }
       #addBtn {
+        width: 40px;
+        height: 35px;
         color: white;
         font-size: 20px;
         background-color: rgb(36, 167, 219);
         border: none;
-        height: 100%;
       }
       #list {
         width: 90%;
@@ -118,20 +128,29 @@
     </style>
   </head>
   <body>
-    <div id="todo_todo">
+    <div id="todo1">
       <div id="title">
         <h3>✔ To Do List</h3>
+        <h5></h5>
       </div>
-      <div id="todo_box">
-        <div id="input_box">
-          <input id="input" type="text" placeholder="할 일을 입력하세요." />
+      <div id="todo2">
+        <div id="todo_box">
+          <div id="input_box">
+            <input
+              id="todo_input"
+              type="text"
+              placeholder="할 일을 입력하세요."
+            />
+          </div>
           <div id="add"><button id="addBtn">+</button></div>
         </div>
         <div id="todo_list">
-          <ul id="list"></ul>
-        </div>
-        <div id="todo_all">
-          <button id="show_all" data-type="all">All</button>
+          <div>
+            <ul id="list"></ul>
+          </div>
+          <div id="todo_all">
+            <button id="show_all" data-type="all">All</button>
+          </div>
         </div>
       </div>
     </div>
