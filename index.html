@@ -3,157 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>todo list</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        width: 100%;
-        height: 600px;
-        background-image: url("back-sky.jpg");
-        background-size: cover; /* 이미지 전체 영역 채우기 */
-        background-repeat: no-repeat; /* 이미지 반복 제거 */
-
-        display: flex;
-        justify-content: center; /* 가로 중앙 정렬 */
-      }
-      #todo1 {
-        width: 450px;
-        height: 650px;
-        padding: 10px;
-      }
-      #title {
-        width: 100%;
-        height: 80px;
-        color: rgb(28, 107, 180);
-        font-size: 30px;
-        text-align: center;
-      }
-      #todo2 {
-        width: 100%;
-        height: 500px;
-        background-color: white;
-      }
-      #todo_box {
-        width: 100%;
-        height: 70px;
-        background-color: white;
-        display: flex; /* flexbox 적용 */
-        justify-content: center; /* 가로중앙정렬 */
-        align-items: center; /* 세로중앙정렬 */
-      }
-      #input_box {
-        display: flex;
-        background-color: white;
-        padding: 10px;
-      }
-      #todo_input {
-        width: 300px;
-        height: 35px;
-        border: 1px solid rgb(36, 167, 219);
-        color: rgb(107, 107, 107);
-        background-color: white;
-        text-align: center;
-        font-size: 15px;
-      }
-      /* input focus 테두리 색상 */
-      #input:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-      }
-      #add {
-        background-color: rgb(36, 167, 219);
-        margin-left: 3px; /* 왼쪽 밖 여백 */
-        text-align: center;
-      }
-      #addBtn {
-        width: 40px;
-        height: 35px;
-        color: white;
-        font-size: 20px;
-        background-color: rgb(36, 167, 219);
-        border: none;
-      }
-      #list {
-        width: 90%;
-        display: flex;
-        list-style: none;
-        display: block;
-        padding: 0;
-        margin: 10px;
-      }
-      #todo_list ul li {
-        width: 90%;
-        background-color: white;
-        list-style: none; /*리스트 말머리 없애기*/
-        padding: 7px;
-        border: none;
-        color: rgb(36, 167, 219);
-        /*border: 1px solid rgb(211, 32, 32);*/
-      }
-      #todo_all {
-        display: flex;
-        justify-content: center; /* 수평 중앙 정렬 */
-        align-items: center; /* 수직 중앙 정렬 */
-        width: 100%;
-        height: 35px;
-        border: 0;
-      }
-      .completed {
-        text-decoration: line-through;
-        color: gray;
-      }
-      .delete-btn {
-        background-color: rgb(36, 167, 219);
-        color: white;
-        border: none;
-        padding: 5px;
-        cursor: pointer;
-      }
-      .delete-btn:hover {
-        /* 커서와 버튼색 변경*/
-        cursor: pointer;
-        background-color: rgb(238, 76, 76);
-      }
-      #show_all {
-        width: 35px;
-        height: 70%;
-        color: rgb(167, 166, 166);
-        border: 1px solid rgb(199, 201, 202);
-      }
-    </style>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="todo1">
-      <div id="title">
-        <h3>✔ To Do List</h3>
-        <h5></h5>
+    <div id="todo_todo">
+      <div id="title">To Do List 📝</div>
+      <div id="date"></div>
+      <span id="time"></span>
+      <div id="todo_input">
+        <div id="input0">
+          <input id="input_box" type="text" placeholder="할일을 입력해 주세요~" />
+        </div>
+        <div id="addBtn" onclick="btn_event()">+</div>
       </div>
-      <div id="todo2">
-        <div id="todo_box">
-          <div id="input_box">
-            <input
-              id="todo_input"
-              type="text"
-              placeholder="할 일을 입력하세요."
-            />
-          </div>
-          <div id="add"><button id="addBtn">+</button></div>
-        </div>
-        <div id="todo_list">
-          <div>
-            <ul id="list"></ul>
-          </div>
-          <div id="todo_all">
-            <button id="show_all" data-type="all">All</button>
-          </div>
-        </div>
+      <div id="todo_list">
+        <ul></ul>    
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="todos.js"></script>
   </body>
 </html>
